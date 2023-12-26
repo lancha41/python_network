@@ -28,3 +28,11 @@ Next-Hop              {}
 Last update           {}
 Outbound Interface    {}
 """
+a="""{:<23}{:<15}
+{:<23}{:<15}
+{:<23}{:<15}
+{:<23}{:<15}
+{:<23}{:<15}
+""".format("Prefix",ospf_route.split()[0],"AD/Metric",ospf_route.split()[1],"Next-Hop",ospf_route.split()[3].replace(',',''),"Last Update",ospf_route.split()[4].replace(',',''),"Outbound Interface",ospf_route.split()[5])
+
+print(a)

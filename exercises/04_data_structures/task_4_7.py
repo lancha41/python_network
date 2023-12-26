@@ -16,3 +16,5 @@
 """
 
 mac = "AAAA:BBBB:CCCC"
+nnmm="{:b}".format(int(mac.replace(":",''),16))
+print(nnmm)

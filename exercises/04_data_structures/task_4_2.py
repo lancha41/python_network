@@ -15,3 +15,5 @@
 """
 
 mac = "AAAA:BBBB:CCCC"
+nnmm=mac.replace(':','.')
+print(nnmm)

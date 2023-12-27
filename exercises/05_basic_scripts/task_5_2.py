@@ -30,3 +30,22 @@ Out[1]: '11111111111111111111111111110000'
 
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 """
+ip_add=input('please input ip and mask: ')
+list_ip_add=ip_add.split('/')
+ip_oct=list_ip_add[0].split('.')
+network = '''
+Network:
+{:<8} {:<8} {:<8} {:<8}
+{:08b} {:08b} {:08b} {:08b}
+'''.format(int(ip_oct[0]),int(ip_oct[1]),int(ip_oct[2]),int(ip_oct[3]),int(ip_oct[0]),int(ip_oct[1]),int(ip_oct[2]),int(ip_oct[3]))
+print(network)
+mask_num=int(list_ip_add[1])
+zero_mask=32-mask_num
+bin_mask="1" * mask_num + "0" * zero_mask
+mask='''
+Mask:
+/{}
+{:<8} {:<8} {:<8} {:<8}
+{:8} {:8} {:8} {:8}
+'''.format(mask_num, int(bin_mask[0:8],2), int(bin_mask[8:16],2), int(bin_mask[16:24],2), int(bin_mask[24:32],2),bin_mask[0:8],bin_mask[8:16], bin_mask[16:24], bin_mask[24:32])
+print(mask)

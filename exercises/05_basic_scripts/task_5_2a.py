@@ -49,3 +49,38 @@ bin_ip = "00001010000000010000000111000011"
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 
 """
+ip_add=input('please input ip and mask: ')
+list_ip_add=ip_add.split('/')
+ip_oct=list_ip_add[0].split('.')
+
+a=ip_oct[0]
+
+b=ip_oct[1]
+
+c=ip_oct[2]
+
+d=ip_oct[3]
+
+network_bin='{:08b}'.format(int(a))+'{:08b}'.format(int(b))+'{:08b}'.format(int(c))+'{:08b}'.format(int(d))
+
+mask_num=int(list_ip_add[1])
+
+zero_mask=32-mask_num
+
+netw_ip=network_bin[0:mask_num]+'0'*zero_mask
+
+network = '''
+Network:
+{:<8} {:<8} {:<8} {:<8}
+{:<08} {:<08} {:<08} {:<08}
+'''.format(int(netw_ip[0:8],2),int(netw_ip[8:16],2),int(netw_ip[16:24],2),int(netw_ip[24:32],2),int(netw_ip[0:8]),int(netw_ip[8:16]),int(netw_ip[16:24]),int(netw_ip[24:32]))
+print(network)
+
+bin_mask="1" * mask_num + "0" * zero_mask
+mask='''
+Mask:
+/{}
+{:<8} {:<8} {:<8} {:<8}
+{:8} {:8} {:8} {:8}
+'''.format(mask_num, int(bin_mask[0:8],2), int(bin_mask[8:16],2), int(bin_mask[16:24],2), int(bin_mask[24:32],2),bin_mask[0:8],bin_mask[8:16], bin_mask[16:24], bin_mask[24:32])
+print(mask)

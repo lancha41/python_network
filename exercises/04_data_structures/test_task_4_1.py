@@ -1,5 +1,4 @@
 import sys
-
 sys.path.append("..")
 
 from pyneng_common_functions import check_pytest

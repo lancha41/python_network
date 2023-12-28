@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 # -*- coding: utf-8 -*-
 """
 Задание 7.2
@@ -39,3 +41,13 @@ interface Ethernet0/3
 ...
 
 """
+from sys import argv
+name_file=argv[1]
+print(name_file)
+with open(name_file,'r') as f:
+   output=f.readlines()
+for line in output:
+   if '!' in line:
+      continue
+   else:
+      print(line.replace('\n',''))

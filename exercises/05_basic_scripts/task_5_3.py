@@ -70,5 +70,5 @@ l=["access",access_template,"trunk",trunk_template]
 n=int(l.index(at))
 n=n+1
 answer='\n'.join(l[n])
-print("Interface {}".format(interface))
+print("interface {}".format(interface))
 print(answer.format(vlan))

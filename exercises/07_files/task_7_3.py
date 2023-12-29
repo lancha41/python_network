@@ -20,3 +20,9 @@
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 
 """
+with open('CAM_table.txt','r') as f:
+    file=f.readlines()
+for item in file:
+    item_list=item.split()
+    if item_list and item_list[0][1].isdigit():
+        print("{:<9}{:<20}{}".format(item_list[0],item_list[1],item_list[3]))

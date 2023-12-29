@@ -1,3 +1,5 @@
+#from rich.traceback import install
+#install(show_locals=True, extra_lines=5)
 # -*- coding: utf-8 -*-
 """
 Задание 7.3a
@@ -40,3 +42,21 @@
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 
 """
+pp=[]
+result=[]
+
+with open('CAM_table.txt','r') as f:
+    file=f.readlines()
+    for item in file:
+        item_list=item.split()
+        if item_list and item_list[0][1].isdigit():
+          pp.append("{:<9}{:<20}{}".format(item_list[0],item_list[1],item_list[3]))
+
+for i in pp:
+   result.append(i.split())
+for i in result:
+    i[0]=int(i[0])
+result.sort()
+for vlan,mac,int in result:
+   vlan=str(vlan)
+   print("{:<9}{:<20}{}".format(vlan,mac,int))

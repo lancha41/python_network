@@ -43,3 +43,25 @@ port_security_template = [
 ]
 
 access_config = {"FastEthernet0/12": 10, "FastEthernet0/14": 11, "FastEthernet0/16": 17}
+def generate_access_config(intf_vlan_mapping, access_template,psecurity=None):
+    final_list=[]
+    for int in intf_vlan_mapping:
+       final_list.append(f'interface {int}')
+       if psecurity== None:
+           for word in access_template:
+              if word == 'switchport access vlan':
+                 final_list.append(f'{word} {intf_vlan_mapping[int]}')
+              else:
+                 final_list.append(word)
+       elif psecurity != None:
+           for word in access_template:
+               if word == 'switchport access vlan':
+                   final_list.append(f'{word} {intf_vlan_mapping[int]}')
+               elif word == 'spanning-tree bpduguard enable':
+                   final_list.append(word)
+                   for sec in psecurity:
+                       final_list.append(sec)
+               else:
+                   final_list.append(word)
+
+    return final_list

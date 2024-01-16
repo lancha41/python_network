@@ -43,8 +43,30 @@ def parse_cdp_neighbors(command_output):
     и с файлами и с выводом с оборудования.
     Плюс учимся работать с таким выводом.
     """
-
+    list_out=command_output.split('\n')
+    try:
+        while True:
+            list_out.remove('')
+    except ValueError:
+        pass
+    result=dict()
+    for i in list_out:
+        
+        if not 'show' in i and (i.startswith('R') or i.startswith('SW')):
+            cdp=i.split()
+            string_cdp=[]
+            local_device_list=[]
+            local_device=list_out[0].replace('>show cdp neighbors', '')
+            local_device_list.append(local_device)
+            local_int=cdp[1]+cdp[2]
+            local_device_list.append(local_int)
+            hostname=cdp[0]
+            port_id=cdp[-2]+cdp[-1]
+            string_cdp.append(hostname)
+            string_cdp.append(port_id)
+            result[tuple(local_device_list)]=tuple(string_cdp)
+    return result
 
 if __name__ == "__main__":
-    with open("sh_cdp_n_sw1.txt") as f:
+    with open("sh_cdp_n_r3.txt") as f:
         print(parse_cdp_neighbors(f.read()))

@@ -83,6 +83,30 @@ infiles = [
 ]
 topology={}
 topology.update(create_network_map(infiles))
-def unique_network_map(topology):
-   pass
-draw_topology(topology)
+def unique_network_map(topology_dict):
+    duplicates={}
+    c=0
+    for key1 in topology_dict.copy():
+       for key in topology_dict:
+          if key == topology_dict[key1]:
+              duplicates[key]=topology_dict[key]
+              c+=1
+    
+    corrects=topology_dict.copy()
+    for key in topology_dict.copy():
+       for key1 in topology_dict.copy():
+          if key == topology_dict[key1]:
+              corrects.pop(key)
+    b=c/2
+    list_keys_dupl=list(duplicates)
+    for i in list_keys_dupl[:int(b)]:
+       duplicates.pop(i)
+
+    corrects.update(duplicates)
+    return corrects
+
+
+
+if __name__ == "__main__":
+   tpl=unique_network_map(topology)
+   draw_topology(tpl)

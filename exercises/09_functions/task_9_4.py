@@ -91,6 +91,6 @@ def convert_config_to_dict(config_filename):
    except IndexError:
        result[com]=[]
    return result
-convert_config_to_dict('config_sw1.txt')
+print(convert_config_to_dict('rtr_config.txt'))
 
 

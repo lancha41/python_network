@@ -1,0 +1,1549 @@
+Current configuration : 48425 bytes
+!
+! Last configuration change at 17:05:05 UAED Tue Jan 9 2024 by d.shevchenko
+! NVRAM config last updated at 17:11:08 UAED Tue Jan 9 2024 by d.shevchenko
+!
+version 15.4
+no service pad
+service tcp-keepalives-in
+service tcp-keepalives-out
+no service timestamps debug uptime
+service timestamps log datetime localtime
+service password-encryption
+!
+hostname MainRouter
+!
+boot-start-marker
+boot-end-marker
+!
+!
+logging buffered 32768
+logging console emergencies
+!
+no aaa new-model
+clock timezone UAED 4 0
+!
+!
+!
+!
+!
+!
+no ip source-route
+ip options drop
+!
+!
+!
+!
+!
+ip dhcp excluded-address 10.10.5.1 10.10.5.15
+ip dhcp excluded-address 10.10.10.1 10.10.10.180
+ip dhcp excluded-address 192.168.55.1 192.168.55.150
+ip dhcp excluded-address 10.10.30.1 10.10.30.10
+ip dhcp excluded-address 10.10.103.1 10.10.103.10
+ip dhcp excluded-address 10.10.111.1 10.10.111.10
+ip dhcp excluded-address 10.10.112.1 10.10.112.10
+ip dhcp excluded-address 10.10.113.1 10.10.113.10
+ip dhcp excluded-address 10.10.114.1 10.10.114.10
+ip dhcp excluded-address 10.10.115.1 10.10.115.10
+ip dhcp excluded-address 10.10.116.1 10.10.116.10
+ip dhcp excluded-address 10.10.117.1 10.10.117.10
+ip dhcp excluded-address 10.10.118.1 10.10.118.10
+ip dhcp excluded-address 10.10.119.1 10.10.119.10
+ip dhcp excluded-address 10.10.120.1 10.10.120.10
+ip dhcp excluded-address 10.10.121.1 10.10.121.10
+ip dhcp excluded-address 10.10.127.1 10.10.127.10
+ip dhcp excluded-address 10.10.127.33 10.10.127.42
+ip dhcp excluded-address 10.10.128.1 10.10.128.15
+ip dhcp excluded-address 10.10.130.1 10.10.130.20
+ip dhcp excluded-address 10.10.131.33 10.10.131.42
+ip dhcp excluded-address 10.10.125.1 10.10.125.10
+ip dhcp excluded-address 10.10.129.1 10.10.129.14
+ip dhcp excluded-address 10.10.101.1 10.10.101.20
+ip dhcp excluded-address 10.10.132.1 10.10.132.10
+ip dhcp excluded-address 10.10.133.1 10.10.133.15
+ip dhcp excluded-address 10.10.155.1 10.10.155.10
+ip dhcp excluded-address 10.10.12.1 10.10.12.100
+ip dhcp excluded-address 10.10.13.1 10.10.13.100
+ip dhcp excluded-address 10.10.102.1
+!
+ip dhcp pool VOICE
+ network 192.168.55.0 255.255.255.0
+ default-router 192.168.55.1 
+ dns-server 192.168.55.1 
+!
+ip dhcp pool DMZ
+ network 10.10.5.0 255.255.255.224
+ default-router 10.10.5.1 
+ dns-server 10.10.5.1 94.200.200.200 91.74.74.74 
+!
+ip dhcp pool MeetingRoom
+ network 10.10.30.0 255.255.255.224
+ default-router 10.10.30.1 
+ dns-server 10.10.30.1 94.200.200.200 91.74.74.74 
+!
+ip dhcp pool LAN100
+ network 10.10.10.0 255.255.255.0
+ default-router 10.10.10.1 
+ dns-server 94.200.200.200 91.74.74.74 8.8.8.8 8.8.4.4 
+!
+ip dhcp pool LAN102
+ network 10.10.102.0 255.255.255.128
+ default-router 10.10.102.1 
+ dns-server 94.200.200.200 91.74.74.74 8.8.8.8 
+!
+ip dhcp pool LAN103
+ network 10.10.103.0 255.255.255.224
+ default-router 10.10.103.1 
+ dns-server 94.200.200.200 91.74.74.74 8.8.8.8 
+!
+ip dhcp pool LAN111
+ network 10.10.111.0 255.255.255.224
+ default-router 10.10.111.1 
+ dns-server 94.200.200.200 91.74.74.74 8.8.8.8 
+!
+ip dhcp pool LAN112
+ network 10.10.112.0 255.255.255.224
+ default-router 10.10.112.1 
+ dns-server 94.200.200.200 91.74.74.74 8.8.8.8 
+!         
+ip dhcp pool LAN113
+ network 10.10.113.0 255.255.255.224
+ default-router 10.10.113.1 
+ dns-server 94.200.200.200 91.74.74.74 8.8.8.8 
+!
+ip dhcp pool LAN114
+ network 10.10.114.0 255.255.255.224
+ default-router 10.10.114.1 
+ dns-server 94.200.200.200 91.74.74.74 8.8.8.8 
+!
+ip dhcp pool LAN115
+ network 10.10.115.0 255.255.255.224
+ default-router 10.10.115.1 
+ dns-server 94.200.200.200 91.74.74.74 8.8.8.8 
+!
+ip dhcp pool LAN116
+ network 10.10.116.0 255.255.255.224
+ default-router 10.10.116.1 
+ dns-server 94.200.200.200 91.74.74.74 8.8.8.8 
+!
+ip dhcp pool LAN117
+ network 10.10.117.0 255.255.255.0
+ default-router 10.10.117.1 
+ dns-server 94.200.200.200 91.74.74.74 8.8.8.8 
+!
+ip dhcp pool LAN118
+ network 10.10.118.0 255.255.255.224
+ default-router 10.10.118.1 
+ dns-server 94.200.200.200 91.74.74.74 8.8.8.8 
+!
+ip dhcp pool LAN119
+ network 10.10.119.0 255.255.255.224
+ default-router 10.10.119.1 
+ dns-server 94.200.200.200 91.74.74.74 8.8.8.8 
+!
+ip dhcp pool LAN120
+ network 10.10.120.0 255.255.255.0
+ default-router 10.10.120.1 
+ dns-server 94.200.200.200 91.74.74.74 8.8.8.8 
+!
+ip dhcp pool LAN121
+ network 10.10.121.0 255.255.255.224
+ default-router 10.10.121.1 
+ dns-server 94.200.200.200 91.74.74.74 8.8.8.8 
+!
+ip dhcp pool LAN125
+ network 10.10.125.0 255.255.255.224
+ default-router 10.10.125.1 
+ dns-server 94.200.200.200 91.74.74.74 8.8.8.8 
+!
+ip dhcp pool LAN127a
+ network 10.10.127.0 255.255.255.224
+ default-router 10.10.127.1 
+ dns-server 94.200.200.200 91.74.74.74 8.8.8.8 
+!
+ip dhcp pool LAN127b
+ network 10.10.127.32 255.255.255.224
+ default-router 10.10.127.33 
+ dns-server 94.200.200.200 91.74.74.74 8.8.8.8 
+!
+ip dhcp pool LAN128
+ network 10.10.128.0 255.255.255.192
+ default-router 10.10.128.1 
+ dns-server 94.200.200.200 91.74.74.74 8.8.8.8 
+!
+ip dhcp pool LAN130
+ network 10.10.130.0 255.255.255.0
+ default-router 10.10.130.1 
+ dns-server 94.200.200.200 91.74.74.74 8.8.8.8 
+!
+ip dhcp pool LAN131b
+ network 10.10.131.32 255.255.255.224
+ default-router 10.10.131.33 
+ dns-server 94.200.200.200 91.74.74.74 8.8.8.8 
+!
+ip dhcp pool LAN133
+ network 10.10.133.0 255.255.255.224
+ default-router 10.10.133.1 
+ dns-server 94.200.200.200 91.74.74.74 8.8.8.8 
+!
+ip dhcp pool LAN129
+ network 10.10.129.0 255.255.255.224
+ default-router 10.10.129.1 
+ dns-server 94.200.200.200 91.74.74.74 8.8.8.8 
+!
+ip dhcp pool LAN101
+ network 10.10.101.0 255.255.255.192
+ default-router 10.10.101.1 
+ dns-server 94.200.200.200 91.74.74.74 8.8.8.8 
+!
+ip dhcp pool LAN132
+ network 10.10.132.0 255.255.255.128
+ default-router 10.10.132.1 
+ dns-server 94.200.200.200 91.74.74.74 8.8.8.8 
+!
+ip dhcp pool ACCES-TO-1C-OVH-41
+ host 10.10.102.41 255.255.255.128
+ client-identifier 01f0.1faf.16f7.e3
+ default-router 10.10.102.1 
+ dns-server 94.200.200.200 91.74.74.74 8.8.8.8 
+!
+ip dhcp pool ACCES-TO-1C-OVH-42
+ host 10.10.102.42 255.255.255.128
+ client-identifier 012c.600c.8882.2d
+ default-router 10.10.102.1 
+ dns-server 94.200.200.200 91.74.74.74 8.8.8.8 
+!
+ip dhcp pool ACCES-TO-SMB-OVH-48
+ host 10.10.102.48 255.255.255.128
+ client-identifier 0160.6c66.962b.07
+ default-router 10.10.102.1 
+ dns-server 94.200.200.200 91.74.74.74 8.8.8.8 
+!
+ip dhcp pool ACCES-TO-SMB-OVH-49
+ host 10.10.102.49 255.255.255.128
+ client-identifier 0174.de2b.e2f2.3f
+ default-router 10.10.102.1 
+ dns-server 94.200.200.200 91.74.74.74 8.8.8.8 
+!
+ip dhcp pool ACCES-TO-SMB-OVH-50
+ host 10.10.102.50 255.255.255.128
+ client-identifier 0174.de2b.e301.57
+ default-router 10.10.102.1 
+ dns-server 94.200.200.200 91.74.74.74 8.8.8.8 
+!
+ip dhcp pool ACCES-TO-SMB-OVH-51
+ host 10.10.102.51 255.255.255.128
+ client-identifier 0178.31c1.e167.ad
+ default-router 10.10.102.1 
+ dns-server 94.200.200.200 91.74.74.74 8.8.8.8 
+!
+ip dhcp pool ACCES-TO-SMB-OVH-52
+ host 10.10.102.52 255.255.255.128
+ client-identifier 0178.31c1.e799.01
+ default-router 10.10.102.1 
+ dns-server 94.200.200.200 91.74.74.74 8.8.8.8 
+!
+ip dhcp pool ACCES-TO-1C-OVH-43
+ host 10.10.102.43 255.255.255.128
+ client-identifier 0184.8f69.f14a.12
+ default-router 10.10.102.1 
+ dns-server 94.200.200.200 91.74.74.74 8.8.8.8 
+!
+ip dhcp pool idrac-server
+ host 10.10.102.21 255.255.255.128
+ client-identifier 0114.1877.43bc.3a
+ default-router 10.10.102.1 
+ dns-server 94.200.200.200 91.74.74.74 8.8.8.8 
+!
+ip dhcp pool MIKROIK
+ network 10.10.155.0 255.255.255.0
+ default-router 10.10.155.1 
+ dns-server 94.200.200.200 91.74.74.74 8.8.8.8 
+!
+ip dhcp pool HOST_9
+ host 10.10.102.9 255.255.255.128
+ client-identifier 01e4.54e8.c573.91
+ default-router 10.10.102.1 
+ dns-server 8.8.8.8 
+!
+ip dhcp pool HOST_91
+ host 10.10.102.91 255.255.255.128
+ client-identifier 0100.1761.11e7.91
+ default-router 10.10.102.1 
+ dns-server 8.8.8.8 
+!
+ip dhcp pool POOL_L2TP_USERS
+ network 172.17.17.0 255.255.255.0
+ dns-server 8.8.8.8 
+!
+ip dhcp pool MANAGM
+!
+ip dhcp pool HOST_103.17
+ host 10.10.103.17 255.255.255.224
+ client-identifier 0124.b6fd.fe0b.fd
+ default-router 10.10.103.1 
+ dns-server 8.8.8.8 
+!
+ip dhcp pool MIKROTIK_5 flo
+ host 10.10.155.27 255.255.255.0
+ client-identifier 0118.fd74.0d92.d2
+ default-router 10.10.155.1 
+ dns-server 8.8.8.8 
+ lease 0 0 1
+!
+ip dhcp pool BC_GUEST_VLAN_12
+ network 10.10.12.0 255.255.255.0
+ dns-server 94.200.200.200 91.74.74.74 8.8.8.8 
+ default-router 10.10.12.1 
+!
+ip dhcp pool SERVERHOST_103_21
+ host 10.10.103.21 255.255.255.224
+ client-identifier 0114.1877.43bc.39
+ default-router 10.10.103.1 
+ dns-server 94.200.200.200 91.74.74.74 8.8.8.8 
+!
+ip dhcp pool SERVERHOST_103_29
+ host 10.10.103.29 255.255.255.224
+ client-identifier 0100.0c29.0989.34
+ default-router 10.10.103.1 
+ dns-server 94.200.200.200 91.74.74.74 8.8.8.8 
+!
+ip dhcp pool SERVERHOST_10_253
+ host 10.10.10.253 255.255.255.0
+ client-identifier 0108.9204.aee2.f4
+ default-router 10.10.10.1 
+!
+!
+!
+no ip bootp server
+no ip domain lookup
+ip domain name sorp.com
+ip name-server 94.200.200.200
+ip name-server 91.74.74.74
+ip name-server 8.8.8.8
+ip inspect name INSPECT_OUT dns
+ip inspect name INSPECT_OUT icmp
+ip inspect name INSPECT_OUT ntp
+ip inspect name INSPECT_OUT http
+ip inspect name INSPECT_OUT https
+ip inspect name INSPECT_OUT ftp
+ip inspect name INSPECT_OUT h323
+ip inspect name INSPECT_OUT smtp
+ip inspect name INSPECT_OUT realaudio
+ip inspect name INSPECT_OUT tcp router-traffic
+ip inspect name INSPECT_OUT udp router-traffic
+ip inspect name INSPECT_OUT ftps
+ip inspect name INSPECT_OUT tftp
+ip inspect name INSPECT_OUT sqlnet
+ip inspect name INSPECT_OUT rtsp
+ip inspect name INSPECT_OUT router
+ip inspect name INSPECT_OUT pop3
+ip inspect name INSPECT_OUT pop3s
+ip inspect name INSPECT_OUT netshow
+ip inspect name INSPECT_OUT imap
+ip inspect name INSPECT_OUT imap3
+ip inspect name INSPECT_OUT imaps
+ip inspect name INSPECT_OUT isakmp
+ip inspect name INSPECT_OUT pptp
+ip inspect name INSPECT_OUT ssh
+ip inspect name INSPECT_OUT sip
+ip inspect name INSPECT_OUT sip-tls
+ip accounting-threshold 1000
+ip cef
+login block-for 60 attempts 3 within 30
+login delay 5
+no ipv6 cef
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+!
+!
+cts logging verbose
+!
+crypto pki trustpoint TRUSTPOINT
+ enrollment selfsigned
+ subject-name CN=5.32.41.70
+ revocation-check none
+ rsakeypair TRUSTPOINT
+!
+crypto pki trustpoint SALAM_TRUSTPOINT
+ enrollment terminal pem
+ subject-name CN=5.32.41.70
+ revocation-check none
+ rsakeypair SSLKEY
+!
+!         
+crypto pki certificate chain TRUSTPOINT
+ certificate ca 543E17BE1456B682E5878555AF9F49E4DBCC2F1B
+  30820313 308201FB A0030201 02021454 3E17BE14 56B682E5 878555AF 9F49E4DB 
+  CC2F1B30 0D06092A 864886F7 0D01010B 05003019 31173015 06035504 030C0E53 
+  656C6653 69676E65 64436572 74301E17 0D323030 32303631 33333431 365A170D 
+  33313031 31393133 33343136 5A301931 17301506 03550403 0C0E5365 6C665369 
+  676E6564 43657274 30820122 300D0609 2A864886 F70D0101 01050003 82010F00 
+  3082010A 02820101 00A43962 7F418058 1078914D E0DC7F30 7E7A1B4F 673A11C2 
+  41611573 61A4D290 F08110FE 8389D41B A94257E2 186F8337 ADD6F5AE FA7898C0 
+  0AC4CED8 9359A969 4DAA6B84 D627829F 27BA6C57 B9B0C32F 14E23B2F 0EF62E1B 
+  A86955A5 FDE61A40 0D28B43E 65DE0F13 0ACCABC3 92347663 905ABFBA E81F3E66 
+  C2FC5B68 9D0F3772 22C19276 4FB691D5 8A3CA76C B3788372 2FAC17DC 3E5E7650 
+  AC336BEC 53D13C92 ED488B79 8AD85EC6 DA520116 CA93A3C4 0CC31C24 B73B2D92 
+  A4FB4F26 646B4ACB 8E926629 0322AB37 9F7C1C35 CE60B30A BED6393A 47CCADC8 
+  EEE1E994 3189C3FD CD628E27 AA5D9ADE 0C755E07 410DFEB0 AAFE8629 85FE716D 
+  4B6B9CE7 C9406BB3 B9020301 0001A353 3051301D 0603551D 0E041604 14EB13EC 
+  5C161997 656F66BF 0AEF268B 518F032B CC301F06 03551D23 04183016 8014EB13 
+  EC5C1619 97656F66 BF0AEF26 8B518F03 2BCC300F 0603551D 130101FF 04053003 
+  0101FF30 0D06092A 864886F7 0D01010B 05000382 0101009A E64F570D 5E8D975D 
+  1B4BF995 C57C5BF2 BA3587F8 473BAB17 BBA57100 54D49548 5920B1FB 1CD76D1C 
+  265C0AE9 A65F5A07 4EC91DCB 1DB56C5F 6447CEE2 2D014CB6 9EC12992 28445048 
+  919E6C96 6DD7B0EB B2D8D72B C67353B3 C1DF7946 E1506D1C 4E02727C 6EBEADE2 
+  FDE71859 0D1F1FF4 7369AEC9 3272CACF 8A3740CB 3E03DB08 FB7D2472 0245D0BC 
+  15BFB46E B8D42E1D 04A1C3FF 7EFE8E67 B31E0870 8A7B42DC B317211E 4FCD514D 
+  58C05CE8 8B4338D3 118CEB79 573CA317 69E3C046 6A598378 3A30AB4D 8A419383 
+  351D7D3C 97B54D5E DE499A52 A9CEC3B3 688CEAC3 9F75B038 3D2ADC31 1E832DE1 
+  7491F86C 80ECB7A4 763FEC72 F6A481A9 F743F41F 561426
+        quit
+crypto pki certificate chain SALAM_TRUSTPOINT
+ certificate ca 1A5F
+  308202B3 3082019B A0030201 0202021A 5F300D06 092A8648 86F70D01 010B0500 
+  305A310B 30090603 55040613 02555331 13301106 03550408 130A5761 7368696E 
+  67746F6E 3110300E 06035504 07130753 65617474 6C653124 30220603 55040A13 
+  1B676574 61436572 74202D20 7777772E 67657461 63657274 2E636F6D 301E170D 
+  32313036 33303130 32303236 5A170D32 31303832 39313032 3032365A 30153113 
+  30110603 55040313 0A352E33 322E3431 2E373030 819F300D 06092A86 4886F70D 
+  01010105 0003818D 00308189 02818100 87B47DCB 30C29112 DE332EBF C4B3313F 
+  B517F4E3 84D3ED7E 49EEACBE C33D708E 7042DAC0 7D834CD6 60CB1537 18F7D1C4 
+  1D7CEC8D 3BCE4AEA 10B72D47 ACAF8160 F662F91D C877FABA 1B789DFA 34255CE8 
+  F2EE1C8F F31B562F B96D8D84 D816797D 879EDC12 640288FE C83BF6CE B727D3E3 
+  03DD5140 38DCCE4A BD4BCCAB 72EDAE3F 02030100 01A34C30 4A300906 03551D13 
+  04023000 30110609 60864801 86F84201 01040403 0204F030 0B060355 1D0F0404 
+  030205A0 301D0603 551D2504 16301406 082B0601 05050703 0206082B 06010505 
+  07030130 0D06092A 864886F7 0D01010B 05000382 0101006C C1465AA9 8378524B 
+  BCDD9CA0 8F820974 2059C4E2 A0DEB847 51289A73 F70394DD 8D3D3D1E A9FEE81D 
+  5FAC46A0 1DD84A34 405F14B6 463F8BE5 85E3E18C 3BDF9694 20900E9C 4ADA02B7 
+  37489172 6DAA38F2 5C252520 5AFCC5C4 AE97DDC1 BEC3FB16 4A15C3A9 D461BFC6 
+  0D3489FB F94436EE D69F76EE 13BD7384 A1470DFA EDF0D95A F1E78EF9 EA733C88 
+  2824A4FA 6D351688 E2B07FF5 2C2263F5 511D140C F400DE2C 9FEE9D47 B9244E50 
+  90F5FE5F 7C2AF2E0 6565AE7C AA3D8319 D070353C B5EA11B3 63923CAB 9A8DA5F6 
+  13EAB088 2BD0CA2F 5B68397B 15C4595C D839D614 7093288D 5DB9CBBB E3C62C10 
+  41594250 CD67667B 36EA6EC8 250CA4F5 F2041BC7 A7AE8C
+        quit
+voice-card 0
+!
+!
+!
+!
+!
+!
+!
+!
+license udi pid CISCO2901/K9 sn FCZ142993UG
+hw-module pvdm 0/0
+!
+!
+!
+archive
+ log config
+  logging enable
+  logging size 200
+  notify syslog contenttype plaintext
+  hidekeys
+username sorpadmin privilege 15 secret 5 $1$vv5d$zGoEAar.g2xDT47BVf3Yc.
+username phoneadmin privilege 2 secret 5 $1$E4Hj$Q3AzoHEjJz4L..4CJbWBm.
+username d.shevchenko privilege 15 secret 5 $1$TlT6$gvGh01hNKCn9fit9GPptn1
+secure boot-image
+secure boot-config
+!
+redundancy
+!
+!
+!
+!
+!
+ip tcp selective-ack
+ip tcp path-mtu-discovery
+! 
+crypto logging session
+crypto logging ezvpn
+!
+crypto vpn anyconnect flash0:/webvpn/anyconnect-macos-4.9.05042-webdeploy-k9.pkg sequence 1
+!
+crypto vpn anyconnect profile RDProfile flash:/webvpn/RDProfile.xml
+!
+crypto isakmp policy 10
+ encr 3des
+ hash md5
+ authentication pre-share
+ group 2
+ lifetime 3600
+!
+crypto isakmp policy 20
+ encr aes
+ authentication pre-share
+ group 5
+!
+crypto isakmp policy 30
+ encr aes 256
+ authentication pre-share
+ group 5
+ lifetime 14400
+!
+crypto isakmp policy 40
+ encr 3des
+ hash md5
+ authentication pre-share
+ group 2
+!
+crypto isakmp policy 100
+ encr 3des
+ authentication pre-share
+ group 2
+ lifetime 3600
+!
+crypto isakmp policy 111
+ encr 3des
+ hash md5
+ authentication pre-share
+ group 2
+ lifetime 28800
+!
+crypto isakmp policy 999
+ encr 3des
+ hash md5
+ authentication pre-share
+ group 2
+crypto isakmp key G#ka@529!rtZ@69bs address 164.132.136.34  no-xauth
+crypto isakmp key wpu@Ex5!MN#TRxyk3s32q$G24D1 address 195.201.117.47 
+crypto isakmp key Fr#4q7Ejs8$zM@69tBv address 91.73.192.234  
+!
+crypto ipsec security-association lifetime seconds 1800
+!
+crypto ipsec transform-set 3DES-MD5 esp-3des esp-md5-hmac 
+ mode tunnel
+crypto ipsec transform-set ESP-AES esp-aes esp-sha-hmac 
+ mode tunnel
+crypto ipsec transform-set ESP-AES256-SHA esp-aes 256 esp-sha-hmac 
+ mode tunnel
+crypto ipsec transform-set ESP-3DES-SHA esp-3des esp-sha-hmac 
+ mode transport
+crypto ipsec transform-set VPN_IPSEC_SHEV_voxtelcom esp-3des esp-md5-hmac 
+ mode tunnel
+!
+!
+!
+crypto dynamic-map CRYPTO_MAP_REMOTE_USERS_SH 10
+ set nat demux
+ set transform-set ESP-3DES-SHA 
+!
+!
+crypto map SiteToSiteVPN 10 ipsec-isakmp 
+ set peer 164.132.136.34
+ set security-association lifetime seconds 900
+ set transform-set ESP-AES 
+ set pfs group5
+ match address STS-VPN-test
+crypto map SiteToSiteVPN 20 ipsec-isakmp 
+ set peer 91.73.192.234
+ set security-association lifetime seconds 900
+ set transform-set 3DES-MD5 
+ set pfs group2
+ match address VPN-!$fl
+!
+!
+!
+!
+!
+interface Embedded-Service-Engine0/0
+ no ip address
+ shutdown
+!
+interface GigabitEthernet0/0
+ description WAN
+ ip address 87.200.242.6 255.255.255.252 secondary
+ ip address 91.72.146.158 255.255.255.252
+ ip access-group FIREWALL in
+ no ip redirects
+ no ip proxy-arp
+ ip flow ingress
+ ip nat outside
+ ip inspect INSPECT_OUT out
+ ip virtual-reassembly in
+ ip verify unicast reverse-path
+ duplex auto
+ speed auto
+ no cdp enable
+ crypto map SiteToSiteVPN
+!
+interface GigabitEthernet0/1
+ no ip address
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/1.5
+ description DMZ
+ encapsulation dot1Q 5
+ ip address 10.10.5.1 255.255.255.224
+ no ip redirects
+ no ip unreachables
+ no ip proxy-arp
+ ip accounting output-packets
+ ip nat inside
+ ip virtual-reassembly in
+ ip tcp adjust-mss 1452
+ no cdp enable
+!
+interface GigabitEthernet0/1.10
+ encapsulation dot1Q 155
+ ip address 10.10.155.1 255.255.255.0
+ no ip redirects
+ no ip unreachables
+ no ip proxy-arp
+ ip nat inside
+ no ip virtual-reassembly in
+!
+interface GigabitEthernet0/1.12
+ description BCGuest
+ encapsulation dot1Q 12
+ ip address 10.10.12.1 255.255.255.0
+ ip access-group Guestpermission in
+ no ip redirects
+ no ip unreachables
+ no ip proxy-arp
+ ip accounting output-packets
+ ip nat inside
+ ip virtual-reassembly in
+ no cdp enable
+!
+interface GigabitEthernet0/1.13
+ encapsulation dot1Q 13
+ ip address 10.10.13.1 255.255.255.0
+ ip nat inside
+ ip virtual-reassembly in
+!
+interface GigabitEthernet0/1.30
+ description Meeting Room LAN
+ encapsulation dot1Q 30
+ ip address 10.10.30.1 255.255.255.224
+ ip access-group MRoom in
+ no ip redirects
+ no ip unreachables
+ no ip proxy-arp
+ ip accounting output-packets
+ ip nat inside
+ ip virtual-reassembly in
+ no cdp enable
+!
+interface GigabitEthernet0/1.50
+ description VOICE
+ encapsulation dot1Q 50
+ ip address 192.168.55.1 255.255.255.0
+ no ip redirects
+ no ip unreachables
+ no ip proxy-arp
+ ip nat inside
+ no ip virtual-reassembly in
+!
+interface GigabitEthernet0/1.100
+ description Management
+ encapsulation dot1Q 100
+ ip address 10.10.10.1 255.255.255.0
+ no ip unreachables
+ no ip proxy-arp
+ ip accounting output-packets
+ ip nat inside
+ ip virtual-reassembly in
+ ip tcp adjust-mss 1452
+ no cdp enable
+!
+interface GigabitEthernet0/1.101
+ description OFFICE 01-02
+ encapsulation dot1Q 101
+ ip address 10.10.101.1 255.255.255.192
+ ip access-group LAN101permission in
+ no ip redirects
+ no ip unreachables
+ no ip proxy-arp
+ ip accounting output-packets
+ ip nat inside
+ ip virtual-reassembly in
+ no cdp enable
+!
+interface GigabitEthernet0/1.102
+ description SORP
+ encapsulation dot1Q 102
+ ip address 10.10.102.1 255.255.255.128
+ ip access-group SORP in
+ no ip redirects
+ no ip unreachables
+ ip accounting output-packets
+ ip nat inside
+ no ip virtual-reassembly in
+ no cdp enable
+!
+interface GigabitEthernet0/1.103
+ description Office 03
+ encapsulation dot1Q 103
+ ip address 10.10.103.1 255.255.255.224
+ no ip redirects
+ no ip unreachables
+ no ip proxy-arp
+ ip accounting output-packets
+ ip nat inside
+ no ip virtual-reassembly in
+ no cdp enable
+!
+interface GigabitEthernet0/1.111
+ description Office 11
+ encapsulation dot1Q 111
+ ip address 10.10.111.1 255.255.255.224
+ no ip redirects
+ no ip unreachables
+ no ip proxy-arp
+ ip nat inside
+ ip virtual-reassembly in
+ no cdp enable
+!
+interface GigabitEthernet0/1.112
+ description Office 12
+ encapsulation dot1Q 112
+ ip address 10.10.112.1 255.255.255.224
+ no ip redirects
+ no ip unreachables
+ no ip proxy-arp
+ ip accounting output-packets
+ ip nat inside
+ no ip virtual-reassembly in
+ no cdp enable
+!
+interface GigabitEthernet0/1.113
+ description Office 13
+ encapsulation dot1Q 113
+ ip address 10.10.113.1 255.255.255.224
+ no ip redirects
+ no ip unreachables
+ ip nat inside
+ no ip virtual-reassembly in
+ no cdp enable
+!
+interface GigabitEthernet0/1.114
+ description Office 14
+ encapsulation dot1Q 114
+ ip address 10.10.114.1 255.255.255.224
+ ip access-group LAN114permission in
+ no ip redirects
+ no ip unreachables
+ no ip proxy-arp
+ ip accounting output-packets
+ ip nat inside
+ no ip virtual-reassembly in
+ no cdp enable
+!
+interface GigabitEthernet0/1.115
+ description Office 15
+ encapsulation dot1Q 115
+ ip address 10.10.115.1 255.255.255.224
+ ip access-group LAN115permission in
+ no ip redirects
+ no ip unreachables
+ no ip proxy-arp
+ ip accounting output-packets
+ ip nat inside
+ no ip virtual-reassembly in
+ no cdp enable
+!
+interface GigabitEthernet0/1.116
+ description Office 16
+ encapsulation dot1Q 116
+ ip address 10.10.116.1 255.255.255.224
+ no ip redirects
+ no ip unreachables
+ no ip proxy-arp
+ ip accounting output-packets
+ ip nat inside
+ no ip virtual-reassembly in
+ no cdp enable
+!
+interface GigabitEthernet0/1.117
+ description Office 17
+ encapsulation dot1Q 117
+ ip address 10.10.117.1 255.255.255.0
+ no ip redirects
+ no ip unreachables
+ no ip proxy-arp
+ ip accounting output-packets
+ ip nat inside
+ no ip virtual-reassembly in
+ no cdp enable
+!
+interface GigabitEthernet0/1.118
+ description Office 18
+ encapsulation dot1Q 118
+ ip address 10.10.118.1 255.255.255.224
+ no ip redirects
+ no ip unreachables
+ no ip proxy-arp
+ ip accounting output-packets
+ ip nat inside
+ no ip virtual-reassembly in
+ no cdp enable
+!
+interface GigabitEthernet0/1.119
+ description Office 19
+ encapsulation dot1Q 119
+ ip address 10.10.119.1 255.255.255.224
+ no ip redirects
+ no ip unreachables
+ no ip proxy-arp
+ ip accounting output-packets
+ ip nat inside
+ no ip virtual-reassembly in
+ no cdp enable
+!
+interface GigabitEthernet0/1.120
+ description Office 20
+ encapsulation dot1Q 120
+ ip address 10.10.120.1 255.255.255.0
+ ip access-group LAN120permission in
+ no ip redirects
+ no ip unreachables
+ no ip proxy-arp
+ ip accounting output-packets
+ ip nat inside
+ no ip virtual-reassembly in
+ no cdp enable
+!
+interface GigabitEthernet0/1.121
+ description Office 21
+ encapsulation dot1Q 121
+ ip address 10.10.121.1 255.255.255.224
+ ip access-group LAN121permission in
+ no ip redirects
+ no ip unreachables
+ no ip proxy-arp
+ ip accounting output-packets
+ ip nat inside
+ no ip virtual-reassembly in
+ no cdp enable
+!
+interface GigabitEthernet0/1.125
+ description Office 25
+ encapsulation dot1Q 125
+ ip address 10.10.125.1 255.255.255.224
+ ip access-group LAN125permission in
+ no ip redirects
+ no ip unreachables
+ no ip proxy-arp
+ ip accounting output-packets
+ ip nat inside
+ no ip virtual-reassembly in
+ no cdp enable
+!
+interface GigabitEthernet0/1.127
+ description Office 27a
+ encapsulation dot1Q 127
+ ip address 10.10.127.1 255.255.255.224
+ ip access-group LAN127a_permission in
+ no ip redirects
+ no ip unreachables
+ no ip proxy-arp
+ ip accounting output-packets
+ ip nat inside
+ no ip virtual-reassembly in
+ no cdp enable
+!
+interface GigabitEthernet0/1.128
+ description Office 28
+ encapsulation dot1Q 128
+ ip address 10.10.128.1 255.255.255.192
+ ip access-group LAN128permission in
+ no ip redirects
+ no ip unreachables
+ no ip proxy-arp
+ ip accounting output-packets
+ ip nat inside
+ no ip virtual-reassembly in
+ no cdp enable
+!
+interface GigabitEthernet0/1.129
+ description Office 29
+ encapsulation dot1Q 129
+ ip address 10.10.129.1 255.255.255.224
+ ip access-group LAN129permission in
+ no ip redirects
+ no ip unreachables
+ no ip proxy-arp
+ ip accounting output-packets
+ ip nat inside
+ no ip virtual-reassembly in
+ no cdp enable
+!
+interface GigabitEthernet0/1.130
+ description Office 30
+ encapsulation dot1Q 130
+ ip address 10.10.130.1 255.255.255.0
+ ip access-group cowokers in
+ no ip redirects
+ no ip unreachables
+ no ip proxy-arp
+ ip accounting output-packets
+ ip nat inside
+ no ip virtual-reassembly in
+ no cdp enable
+!
+interface GigabitEthernet0/1.132
+ description Office 32a
+ encapsulation dot1Q 132
+ ip address 10.10.132.1 255.255.255.128
+ ip access-group LAN132Apermission in
+ no ip redirects
+ no ip unreachables
+ no ip proxy-arp
+ ip accounting output-packets
+ ip nat inside
+ no ip virtual-reassembly in
+ no cdp enable
+!
+interface GigabitEthernet0/1.133
+ description Office 33
+ encapsulation dot1Q 133
+ ip address 10.10.133.1 255.255.255.224
+ no ip redirects
+ no ip unreachables
+ no ip proxy-arp
+ ip accounting output-packets
+ ip nat inside
+ no ip virtual-reassembly in
+ no cdp enable
+!         
+interface GigabitEthernet0/1.151
+ description VIRTUAL OFFICE - CLIENT A151
+ encapsulation dot1Q 151
+ ip address 10.10.151.1 255.255.255.224
+ no ip redirects
+ no ip unreachables
+ ip accounting output-packets
+ ip nat inside
+ no ip virtual-reassembly in
+ no cdp enable
+!
+interface GigabitEthernet0/1.152
+ description VIRTUAL OFFICE - CLIENT B152
+ encapsulation dot1Q 152
+ ip address 10.10.152.1 255.255.255.224
+ no ip redirects
+ no ip unreachables
+ ip accounting output-packets
+ ip nat inside
+ no ip virtual-reassembly in
+ no cdp enable
+!
+interface GigabitEthernet0/1.153
+ description VIRTUAL OFFICE - CLIENT C153
+ encapsulation dot1Q 153
+ ip address 10.10.153.1 255.255.255.224
+ no ip redirects
+ no ip unreachables
+ ip accounting output-packets
+ ip nat inside
+ no ip virtual-reassembly in
+ no cdp enable
+!
+interface GigabitEthernet0/1.227
+ description Office 27b
+ encapsulation dot1Q 227
+ ip address 10.10.127.33 255.255.255.224
+ ip access-group LAN127b_permission in
+ no ip redirects
+ no ip unreachables
+ no ip proxy-arp
+ ip accounting output-packets
+ ip nat inside
+ no ip virtual-reassembly in
+ no cdp enable
+!
+interface GigabitEthernet0/1.231
+ description Office 31b
+ encapsulation dot1Q 231
+ ip address 10.10.131.33 255.255.255.224
+ no ip redirects
+ no ip unreachables
+ no ip proxy-arp
+ ip nat inside
+ ip virtual-reassembly in
+ no cdp enable
+!
+interface GigabitEthernet0/1.250
+ encapsulation dot1Q 250
+ ip address dhcp
+!
+interface GigabitEthernet0/1.777
+ encapsulation dot1Q 10
+ ip address 172.16.201.127 255.255.255.0
+ ip nat inside
+ ip virtual-reassembly in
+!
+interface GigabitEthernet0/0/0
+ no ip address
+ shutdown
+ negotiation auto
+!
+interface GigabitEthernet0/1/0
+ no ip address
+ shutdown
+!
+interface GigabitEthernet0/1/1
+ no ip address
+ shutdown
+!
+interface GigabitEthernet0/1/2
+ no ip address
+ shutdown
+!
+interface GigabitEthernet0/1/3
+ no ip address
+ shutdown
+!
+interface Virtual-Template1
+ ip unnumbered GigabitEthernet0/1.102
+ ip nat inside
+ ip inspect INSPECT_OUT in
+ ip virtual-reassembly in
+!
+interface Virtual-Template2
+ ip unnumbered GigabitEthernet0/1.151
+ ip nat inside
+ ip inspect INSPECT_OUT in
+ ip virtual-reassembly in
+!
+interface Virtual-Template3
+ ip unnumbered GigabitEthernet0/1.152
+ ip nat inside
+ ip inspect INSPECT_OUT in
+ ip virtual-reassembly in
+!
+interface Virtual-Template4
+ ip unnumbered GigabitEthernet0/1.153
+ ip nat inside
+ ip inspect INSPECT_OUT in
+ ip virtual-reassembly in
+!
+interface Vlan1
+ no ip address
+!
+ip local pool ANYCONNECT_POOL1 10.99.1.10 10.99.1.20
+ip default-gateway 5.32.41.69
+ip forward-protocol nd
+!
+no ip http server
+no ip http secure-server
+!
+ip nat inside source static tcp 10.10.102.9 3385 interface GigabitEthernet0/0 3385
+ip nat inside source static tcp 10.10.102.9 1190 interface GigabitEthernet0/0 1190
+ip nat inside source static udp 10.10.102.9 1190 interface GigabitEthernet0/0 1190
+ip nat inside source static tcp 10.10.113.11 8281 interface GigabitEthernet0/0 48182
+ip nat inside source static tcp 10.10.113.11 4343 interface GigabitEthernet0/0 34343
+ip nat inside source static tcp 10.10.113.11 8001 interface GigabitEthernet0/0 8001
+ip nat inside source static tcp 172.16.201.32 8291 interface GigabitEthernet0/0 59822
+ip nat inside source static tcp 172.16.201.36 8291 interface GigabitEthernet0/0 59823
+ip nat inside source static tcp 10.10.10.213 80 interface GigabitEthernet0/0 8173
+ip nat inside source static tcp 10.10.10.213 443 interface GigabitEthernet0/0 8174
+ip nat inside source static tcp 172.16.201.1 8521 interface GigabitEthernet0/0 59821
+ip nat inside source static tcp 10.10.10.139 8291 interface GigabitEthernet0/0 58131
+ip nat inside source route-map SDM_RMAP_1 interface GigabitEthernet0/0 overload
+ip nat inside source static tcp 10.10.128.17 8000 5.32.41.70 8000 extendable
+ip nat inside source static tcp 192.168.55.5 443 5.32.41.70 65043 extendable
+ip nat inside source static tcp 10.10.102.88 5900 5.32.41.70 65059 extendable
+ip nat inside source static tcp 10.10.10.216 22 5.32.41.70 65082 extendable
+ip nat inside source static tcp 10.10.102.108 22 5.32.41.70 65122 extendable
+ip nat inside source static tcp 10.10.102.108 443 5.32.41.70 65143 extendable
+ip nat inside source static tcp 192.168.55.60 22 5.32.41.70 65220 route-map RMAP-STATIC-NAT-192-168-55-0 extendable
+ip nat inside source static tcp 10.10.102.45 8000 5.32.41.70 65280 extendable
+ip nat inside source static tcp 10.10.129.2 443 5.32.41.70 65310 extendable
+ip nat inside source static tcp 10.10.10.20 3389 5.32.41.70 65389 extendable
+ip nat inside source static 10.10.103.29 87.200.242.6
+ip route 0.0.0.0 0.0.0.0 5.32.41.69
+ip route 0.0.0.0 0.0.0.0 91.72.146.157 10
+ip route 0.0.0.0 0.0.0.0 Null0 255
+ip ssh time-out 60
+ip ssh logging events
+ip ssh version 2
+ip scp server enable
+!
+ip access-list standard SSL_AVPN_ACL
+ permit 172.16.0.0 0.0.255.255
+ permit 10.10.0.0 0.0.255.255
+ip access-list standard name
+ip access-list standard ssl_vpn_split_acl
+ permit 10.10.0.0 0.0.255.255
+!
+ip access-list extended ACL-STATIC-NAT-192-168-55-0
+ permit ip 192.168.55.0 0.0.0.255 10.30.50.0 0.0.0.255
+ permit ip 192.168.55.0 0.0.0.255 10.30.52.0 0.0.0.255
+ permit ip 10.10.102.0 0.0.0.255 10.30.50.0 0.0.0.255
+ permit tcp any host 10.30.50.110 eq 3389
+ permit ip host 192.168.55.60 host 192.168.100.220
+ permit ip host 192.168.55.5 host 192.168.100.220
+ permit ip host 192.168.55.60 192.168.10.0 0.0.0.255
+ permit ip host 192.168.55.5 192.168.10.0 0.0.0.255
+ permit ip host 192.168.55.60 192.168.110.0 0.0.0.255
+ permit ip host 192.168.55.5 192.168.110.0 0.0.0.255
+ permit ip host 192.168.55.15 host 192.168.100.220
+ permit ip host 192.168.55.15 192.168.10.0 0.0.0.255
+ permit ip host 192.168.55.15 192.168.110.0 0.0.0.255
+ip access-list extended ACL_VPN_IPSEC_SHEV_voxtelcom
+ permit ip 192.168.55.0 0.0.0.255 10.23.0.0 0.0.0.255
+ip access-list extended FIREWALL
+ deny   tcp any any fragments
+ deny   udp any any fragments
+ deny   icmp any any fragments
+ deny   ip any any fragments
+ deny   ip any any ttl lt 6
+ deny   ip 10.0.0.0 0.255.255.255 any
+ deny   ip 172.16.0.0 0.15.255.255 any
+ deny   ip 192.168.0.0 0.0.0.255 any
+ deny   ip 169.254.0.0 0.0.255.255 any
+ deny   ip 224.0.0.0 15.255.255.255 any
+ deny   ip 240.0.0.0 7.255.255.255 any
+ deny   ip 127.0.0.0 0.255.255.255 any
+ deny   ip 0.0.0.0 0.255.255.255 any
+ deny   ip 192.0.2.0 0.0.0.255 any
+ permit ip any any
+ip access-list extended Guestpermission
+ deny   ip any 10.10.102.0 0.0.0.255
+ deny   ip 192.168.0.0 0.0.255.255 any
+ deny   ip any 192.168.55.0 0.0.0.255
+ permit ip any any
+ip access-list extended LAN101permission
+ permit tcp 10.10.101.0 0.0.0.63 host 10.10.5.5 eq 445
+ permit tcp 10.10.101.0 0.0.0.63 host 10.10.5.5 eq ftp
+ permit tcp 10.10.101.0 0.0.0.63 host 10.10.5.5 eq ftp-data
+ permit tcp 10.10.101.0 0.0.0.63 host 10.10.5.5 eq 1023
+ deny   tcp 10.10.101.0 0.0.0.63 host 10.10.5.10 eq www
+ deny   tcp 10.10.101.0 0.0.0.63 host 10.10.5.10 eq 443
+ permit ip 10.10.101.0 0.0.0.63 host 10.10.5.10
+ permit ip 10.10.101.0 0.0.0.63 10.10.101.0 0.0.0.63
+ deny   ip 10.10.101.0 0.0.0.63 10.0.0.0 0.255.255.255 log
+ deny   ip 10.10.101.0 0.0.0.63 192.168.55.0 0.0.0.255 log
+ permit ip 10.10.101.0 0.0.0.63 any
+ permit udp host 0.0.0.0 host 255.255.255.255 eq bootps
+ deny   ip any any
+ip access-list extended LAN103permission
+ permit ip host 10.10.103.21 any
+ permit ip host 10.10.103.29 any
+ permit ip host 10.10.103.17 any
+ permit ip host 10.10.103.27 any
+ remark ACCESS TO NAS VIA FTP-SMB 
+ permit tcp 10.10.103.0 0.0.0.31 host 10.10.5.5 eq 445
+ permit tcp 10.10.103.0 0.0.0.31 host 10.10.5.5 eq ftp
+ permit tcp 10.10.103.0 0.0.0.31 host 10.10.5.5 eq ftp-data
+ permit tcp 10.10.103.0 0.0.0.31 host 10.10.5.5 eq 1023
+ remark DENY ACCESS TO SHARP VIA HTTP-HTTPS
+ deny   tcp 10.10.103.0 0.0.0.31 host 10.10.5.10 eq www
+ deny   tcp 10.10.103.0 0.0.0.31 host 10.10.5.10 eq 443
+ remark ACCESS TO SHARP
+ permit ip 10.10.103.0 0.0.0.31 host 10.10.5.10
+ remark ACCESS TO LAN 103
+ permit ip 10.10.103.0 0.0.0.31 10.10.103.0 0.0.0.31
+ remark DENY ACCESS TO OTHER LANs
+ deny   ip 10.10.103.0 0.0.0.31 10.0.0.0 0.255.255.255 log
+ deny   ip 10.10.103.0 0.0.0.31 192.168.55.0 0.0.0.255 log
+ remark ACCESS TO INTERNET FROM LAN 113
+ permit ip 10.10.103.0 0.0.0.31 any
+ remark ACCESS TO DHCP SERVER
+ permit udp host 0.0.0.0 host 255.255.255.255 eq bootps
+ deny   ip any any
+ip access-list extended LAN113permission
+ remark ACCESS TO NAS VIA FTP-SMB 
+ permit tcp 10.10.113.0 0.0.0.31 host 10.10.5.5 eq 445
+ permit tcp 10.10.113.0 0.0.0.31 host 10.10.5.5 eq ftp
+ permit tcp 10.10.113.0 0.0.0.31 host 10.10.5.5 eq ftp-data
+ permit tcp 10.10.113.0 0.0.0.31 host 10.10.5.5 eq 1023
+ remark DENY ACCESS TO SHARP VIA HTTP-HTTPS
+ deny   tcp 10.10.113.0 0.0.0.31 host 10.10.5.10 eq www
+ deny   tcp 10.10.113.0 0.0.0.31 host 10.10.5.10 eq 443
+ remark ACCESS TO SHARP
+ permit ip 10.10.113.0 0.0.0.31 host 10.10.5.10
+ remark ACCESS TO LAN 113
+ permit ip 10.10.113.0 0.0.0.31 10.10.113.0 0.0.0.31
+ remark DENY ACCESS TO OTHER LANs
+ deny   ip 10.10.113.0 0.0.0.31 10.0.0.0 0.255.255.255 log
+ deny   ip 10.10.113.0 0.0.0.31 192.168.55.0 0.0.0.255 log
+ remark ACCESS TO INTERNET FROM LAN 113
+ permit ip 10.10.113.0 0.0.0.31 any
+ remark ACCESS TO DHCP SERVER
+ permit udp host 0.0.0.0 host 255.255.255.255 eq bootps
+ deny   ip any any
+ip access-list extended LAN114permission
+ permit ip any host 10.10.102.122
+ remark ACCESS TO NAS VIA FTP-SMB
+ permit tcp 10.10.114.0 0.0.0.31 host 10.10.5.5 eq 445
+ permit tcp 10.10.114.0 0.0.0.31 host 10.10.5.5 eq ftp
+ permit tcp 10.10.114.0 0.0.0.31 host 10.10.5.5 eq ftp-data
+ permit tcp 10.10.114.0 0.0.0.31 host 10.10.5.5 eq 1023
+ remark DENY ACCESS TO SHARP VIA HTTP-HTTPS
+ deny   tcp 10.10.114.0 0.0.0.31 host 10.10.5.10 eq www
+ deny   tcp 10.10.114.0 0.0.0.31 host 10.10.5.10 eq 443
+ remark ACCESS TO SHARP
+ permit ip 10.10.114.0 0.0.0.31 host 10.10.5.10
+ remark ACCESS TO LAN 114
+ permit ip 10.10.114.0 0.0.0.31 10.10.114.0 0.0.0.31
+ remark DENY ACCESS TO OTHER LANs
+ deny   ip 10.10.114.0 0.0.0.31 10.0.0.0 0.255.255.255 log
+ deny   ip 10.10.114.0 0.0.0.31 192.168.55.0 0.0.0.255 log
+ remark ACCESS TO INTERNET FROM LAN 114
+ permit ip 10.10.114.0 0.0.0.31 any
+ remark ACCESS TO DHCP SERVER
+ permit udp host 0.0.0.0 host 255.255.255.255 eq bootps
+ deny   ip any any
+ip access-list extended LAN115permission
+ deny   tcp 10.10.115.0 0.0.0.31 host 10.10.5.10 eq www
+ deny   tcp 10.10.115.0 0.0.0.31 host 10.10.5.10 eq 443
+ permit ip 10.10.115.0 0.0.0.31 host 10.10.5.10
+ permit ip 10.10.115.0 0.0.0.31 10.10.115.0 0.0.0.31
+ deny   ip 10.10.115.0 0.0.0.31 10.0.0.0 0.255.255.255 log
+ deny   ip 10.10.115.0 0.0.0.31 192.168.55.0 0.0.0.255 log
+ permit ip 10.10.115.0 0.0.0.31 any
+ permit udp host 0.0.0.0 host 255.255.255.255 eq bootps
+ deny   ip any any
+ip access-list extended LAN117permission
+ permit tcp 10.10.117.0 0.0.0.253 host 10.10.5.5 eq 445
+ permit tcp 10.10.117.0 0.0.0.253 host 10.10.5.5 eq ftp
+ permit tcp 10.10.117.0 0.0.0.253 host 10.10.5.5 eq ftp-data
+ permit tcp 10.10.117.0 0.0.0.253 host 10.10.5.5 eq 1023
+ deny   tcp 10.10.117.0 0.0.0.253 host 10.10.5.10 eq www
+ deny   tcp 10.10.117.0 0.0.0.253 host 10.10.5.10 eq 443
+ permit ip 10.10.117.0 0.0.0.253 host 10.10.5.10
+ permit ip 10.10.117.0 0.0.0.253 10.10.117.0 0.0.0.253
+ deny   ip 10.10.117.0 0.0.0.253 10.0.0.0 0.255.255.255 log
+ deny   ip 10.10.117.0 0.0.0.253 192.168.55.0 0.0.0.255 log
+ permit ip 10.10.117.0 0.0.0.253 any
+ permit udp host 0.0.0.0 host 255.255.255.255 eq bootps
+ deny   ip any any
+ip access-list extended LAN120permission
+ permit tcp 10.10.120.0 0.0.0.253 host 10.10.5.5 eq 445
+ permit tcp 10.10.120.0 0.0.0.253 host 10.10.5.5 eq ftp
+ permit tcp 10.10.120.0 0.0.0.253 host 10.10.5.5 eq ftp-data
+ permit tcp 10.10.120.0 0.0.0.253 host 10.10.5.5 eq 1023
+ deny   tcp 10.10.120.0 0.0.0.253 host 10.10.5.10 eq www
+ deny   tcp 10.10.120.0 0.0.0.253 host 10.10.5.10 eq 443
+ permit ip 10.10.120.0 0.0.0.253 host 10.10.5.10
+ permit ip 10.10.120.0 0.0.0.255 10.10.120.0 0.0.0.255
+ deny   ip 10.10.120.0 0.0.0.253 10.0.0.0 0.255.255.255 log
+ deny   ip 10.10.120.0 0.0.0.253 192.168.55.0 0.0.0.255 log
+ permit ip 10.10.120.0 0.0.0.253 any
+ permit udp host 0.0.0.0 host 255.255.255.255 eq bootps
+ deny   ip any any
+ip access-list extended LAN121_permission
+ permit tcp 10.10.121.0 0.0.0.31 host 10.10.5.5 eq 445
+ permit tcp 10.10.121.0 0.0.0.31 host 10.10.5.5 eq ftp
+ permit tcp 10.10.121.0 0.0.0.31 host 10.10.5.5 eq ftp-data
+ permit tcp 10.10.121.0 0.0.0.31 host 10.10.5.5 eq 1023
+ deny   tcp 10.10.121.0 0.0.0.31 host 10.10.5.10 eq www
+ deny   tcp 10.10.121.0 0.0.0.31 host 10.10.5.10 eq 443
+ permit ip 10.10.121.0 0.0.0.31 host 10.10.5.10
+ permit ip 10.10.121.0 0.0.0.31 10.10.121.0 0.0.0.31
+ deny   ip 10.10.121.0 0.0.0.31 10.0.0.0 0.255.255.255 log
+ deny   ip 10.10.121.0 0.0.0.31 192.168.55.0 0.0.0.255 log
+ permit ip 10.10.121.0 0.0.0.31 any
+ permit udp host 0.0.0.0 host 255.255.255.255 eq bootps
+ deny   ip any any
+ip access-list extended LAN125permission
+ permit ip 10.10.125.0 0.0.0.31 10.10.125.0 0.0.0.31
+ deny   ip 10.10.125.0 0.0.0.31 10.0.0.0 0.255.255.255 log
+ deny   ip 10.10.125.0 0.0.0.31 192.168.55.0 0.0.0.255 log
+ permit ip 10.10.125.0 0.0.0.31 any
+ permit udp host 0.0.0.0 host 255.255.255.255 eq bootps
+ deny   ip any any
+ip access-list extended LAN127a_permission
+ permit tcp 10.10.127.0 0.0.0.31 host 10.10.5.5 eq 445
+ permit tcp 10.10.127.0 0.0.0.31 host 10.10.5.5 eq ftp
+ permit tcp 10.10.127.0 0.0.0.31 host 10.10.5.5 eq ftp-data
+ permit tcp 10.10.127.0 0.0.0.31 host 10.10.5.5 eq 1023
+ deny   tcp 10.10.127.0 0.0.0.31 host 10.10.5.10 eq www
+ deny   tcp 10.10.127.0 0.0.0.31 host 10.10.5.10 eq 443
+ permit ip 10.10.127.0 0.0.0.31 host 10.10.5.10
+ permit ip 10.10.127.0 0.0.0.31 10.10.127.0 0.0.0.31
+ deny   ip 10.10.127.0 0.0.0.31 10.0.0.0 0.255.255.255 log
+ deny   ip 10.10.127.0 0.0.0.31 192.168.55.0 0.0.0.255 log
+ permit ip 10.10.127.0 0.0.0.31 any
+ permit udp host 0.0.0.0 host 255.255.255.255 eq bootps
+ deny   ip any any
+ip access-list extended LAN127b_permission
+ permit tcp 10.10.127.32 0.0.0.31 host 10.10.5.5 eq 445
+ permit tcp 10.10.127.32 0.0.0.31 host 10.10.5.5 eq ftp
+ permit tcp 10.10.127.32 0.0.0.31 host 10.10.5.5 eq ftp-data
+ permit tcp 10.10.127.32 0.0.0.31 host 10.10.5.5 eq 1023
+ deny   tcp 10.10.127.32 0.0.0.31 host 10.10.5.10 eq www
+ deny   tcp 10.10.127.32 0.0.0.31 host 10.10.5.10 eq 443
+ permit ip 10.10.127.32 0.0.0.31 host 10.10.5.10
+ permit ip 10.10.127.32 0.0.0.31 10.10.127.32 0.0.0.31
+ deny   ip 10.10.127.32 0.0.0.31 10.0.0.0 0.255.255.255 log
+ deny   ip 10.10.127.32 0.0.0.31 192.168.55.0 0.0.0.255 log
+ permit ip 10.10.127.32 0.0.0.31 any
+ permit udp host 0.0.0.0 host 255.255.255.255 eq bootps
+ deny   ip any any
+ip access-list extended LAN128permission
+ permit tcp 10.10.128.0 0.0.0.63 host 10.10.5.5
+ deny   tcp 10.10.128.0 0.0.0.63 host 10.10.5.10 eq www
+ deny   tcp 10.10.128.0 0.0.0.63 host 10.10.5.10 eq 443
+ permit ip 10.10.128.0 0.0.0.63 host 10.10.5.10
+ permit ip 10.10.128.0 0.0.0.63 10.10.128.0 0.0.0.63
+ deny   ip 10.10.128.0 0.0.0.63 10.0.0.0 0.255.255.255
+ deny   ip 10.10.128.0 0.0.0.63 192.168.55.0 0.0.0.255
+ permit ip 10.10.128.0 0.0.0.63 any
+ deny   ip any any
+ip access-list extended LAN129permission
+ deny   tcp 10.10.129.0 0.0.0.31 host 10.10.5.10 eq www
+ deny   tcp 10.10.129.0 0.0.0.31 host 10.10.5.10 eq 443
+ permit ip 10.10.129.0 0.0.0.31 host 10.10.5.10
+ permit ip 10.10.129.0 0.0.0.31 10.10.129.0 0.0.0.31
+ deny   ip 10.10.129.0 0.0.0.31 10.0.0.0 0.255.255.255 log
+ deny   ip 10.10.129.0 0.0.0.31 192.168.55.0 0.0.0.255 log
+ permit ip 10.10.129.0 0.0.0.31 any
+ permit udp host 0.0.0.0 host 255.255.255.255 eq bootps
+ deny   ip any any
+ip access-list extended LAN131b_permission
+ deny   tcp 10.10.131.32 0.0.0.31 host 10.10.5.10 eq www
+ deny   tcp 10.10.131.32 0.0.0.31 host 10.10.5.10 eq 443
+ permit ip any any
+ip access-list extended LAN132APermission
+ip access-list extended LAN132Apermission
+ remark ACCESS TO NAS VIA FTP-SMB 
+ permit tcp 10.10.132.0 0.0.0.127 host 10.10.5.5 eq 445
+ permit tcp 10.10.132.0 0.0.0.127 host 10.10.5.5 eq ftp
+ permit tcp 10.10.132.0 0.0.0.127 host 10.10.5.5 eq ftp-data
+ permit tcp 10.10.132.0 0.0.0.127 host 10.10.5.5 eq 1023
+ remark DENY ACCESS TO SHARP VIA HTTP-HTTPS
+ deny   tcp 10.10.132.0 0.0.0.127 host 10.10.5.10 eq www
+ deny   tcp 10.10.132.0 0.0.0.127 host 10.10.5.10 eq 443
+ remark ACCESS TO SHARP
+ permit ip 10.10.132.0 0.0.0.127 host 10.10.5.10
+ remark ACCESS TO LAN 103
+ permit ip 10.10.132.0 0.0.0.127 10.10.132.0 0.0.0.127
+ remark DENY ACCESS TO OTHER LANs
+ deny   ip 10.10.132.0 0.0.0.127 10.0.0.0 0.255.255.255 log
+ deny   ip 10.10.132.0 0.0.0.127 192.168.55.0 0.0.0.255 log
+ remark ACCESS TO INTERNET FROM LAN 132a
+ permit ip 10.10.132.0 0.0.0.127 any
+ remark ACCESS TO DHCP SERVER
+ permit udp host 0.0.0.0 host 255.255.255.255 eq bootps
+ deny   ip any any
+ip access-list extended LAN133_permission
+ permit ip host 10.10.133.17 host 10.10.10.2
+ permit tcp 10.10.133.0 0.0.0.31 host 10.10.5.5 eq 445
+ permit tcp 10.10.133.0 0.0.0.31 host 10.10.5.5 eq ftp
+ permit tcp 10.10.133.0 0.0.0.31 host 10.10.5.5 eq ftp-data
+ permit tcp 10.10.133.0 0.0.0.31 host 10.10.5.5 eq 1023
+ deny   tcp 10.10.133.0 0.0.0.31 host 10.10.5.10 eq www
+ deny   tcp 10.10.133.0 0.0.0.31 host 10.10.5.10 eq 443
+ permit ip 10.10.133.0 0.0.0.31 host 10.10.5.10
+ permit ip 10.10.133.0 0.0.0.31 10.10.133.0 0.0.0.31
+ deny   ip 10.10.133.0 0.0.0.31 10.0.0.0 0.255.255.255 log
+ deny   ip 10.10.133.0 0.0.0.31 192.168.55.0 0.0.0.255 log
+ permit ip 10.10.133.0 0.0.0.31 any
+ permit udp host 0.0.0.0 host 255.255.255.255 eq bootps
+ deny   ip any any
+ip access-list extended MRoom
+ permit ip 10.10.30.0 0.0.0.255 host 10.10.30.1
+ permit ip 10.10.30.0 0.0.0.255 host 10.10.30.2
+ deny   ip 10.10.30.0 0.0.0.255 10.0.0.0 0.255.255.255 log
+ deny   ip 10.10.30.0 0.0.0.255 192.168.55.0 0.0.0.255 log
+ permit ip any any
+ip access-list extended NATMAIN
+ deny   ip 192.168.55.0 0.0.0.255 10.0.0.0 0.255.255.255
+ deny   ip 10.10.102.0 0.0.0.127 10.30.50.0 0.0.0.255
+ deny   ip 10.10.103.0 0.0.0.31 10.30.50.0 0.0.0.255
+ deny   ip 10.10.10.0 0.0.0.255 10.30.50.0 0.0.0.255
+ deny   ip 10.10.131.32 0.0.0.31 10.30.50.0 0.0.0.255
+ deny   ip 10.10.111.0 0.0.0.31 10.30.50.0 0.0.0.255
+ deny   ip host 192.168.55.60 host 192.168.100.220
+ deny   ip 10.10.102.0 0.0.0.127 192.168.10.0 0.0.0.255
+ deny   ip 10.10.114.0 0.0.0.31 192.168.110.0 0.0.0.255
+ deny   ip 10.10.0.0 0.0.255.255 10.10.0.0 0.0.255.255
+ deny   ip 192.168.0.0 0.0.255.255 192.168.0.0 0.0.255.255
+ deny   ip 192.168.55.0 0.0.0.255 192.168.56.0 0.0.0.255
+ permit ip 10.10.0.0 0.0.255.255 any
+ permit ip 192.168.55.0 0.0.0.255 any
+ permit ip 172.17.11.0 0.0.0.255 any
+ permit ip 172.17.12.0 0.0.0.255 any
+ip access-list extended SORP
+ deny   tcp 10.10.102.0 0.0.0.127 host 10.10.5.10 eq www
+ deny   tcp 10.10.102.0 0.0.0.127 host 10.10.5.10 eq 443
+ deny   ip 10.10.102.0 0.0.0.127 192.168.55.0 0.0.0.255
+ permit ip any any
+ip access-list extended SSL_AVPN_SPLIT
+ permit ip any any
+ip access-list extended STS-VPN-RDS-voice
+ remark ACL for VPN connection SORP to RDS Cargo  
+ permit ip host 192.168.55.60 host 192.168.100.220
+ permit ip host 192.168.55.5 host 192.168.100.220
+ permit ip host 192.168.55.15 host 192.168.100.220
+ deny   ip any any
+ip access-list extended STS-VPN-Villa
+ permit ip 192.168.55.0 0.0.0.255 192.168.10.0 0.0.0.255
+ permit ip 192.168.10.0 0.0.0.255 192.168.55.0 0.0.0.255
+ip access-list extended STS-VPN-test
+ remark From SORP voice to OVH voice
+ remark CCP_ACL Category=4
+ permit ip 192.168.55.0 0.0.0.255 10.30.50.0 0.0.0.255
+ permit ip 192.168.55.0 0.0.0.255 10.30.52.0 0.0.0.255
+ remark traffic to Asterisk 
+ permit ip 192.168.55.0 0.0.0.255 host 10.30.51.2
+ permit ip 10.10.111.0 0.0.0.31 10.30.50.0 0.0.0.255
+ permit ip 10.10.102.0 0.0.0.127 10.30.50.0 0.0.0.255
+ permit ip 10.10.103.0 0.0.0.31 10.30.50.0 0.0.0.255
+ permit ip 10.10.10.0 0.0.0.255 10.30.50.0 0.0.0.255
+ permit ip 10.10.131.32 0.0.0.31 10.30.50.0 0.0.0.255
+ permit ip 10.10.131.0 0.0.0.31 10.30.50.0 0.0.0.255
+ permit ip host 10.10.103.21 10.30.50.0 0.0.0.255
+ permit ip 172.16.201.0 0.0.0.255 10.30.50.0 0.0.0.255
+ deny   udp any 10.0.0.0 0.0.0.255 eq 3479
+ deny   udp any 10.0.0.0 0.0.0.255 eq 3480
+ deny   udp any 10.0.0.0 0.0.0.255 eq 3481
+ deny   udp any 192.168.0.0 0.0.255.255 eq 3479
+ deny   udp any 192.168.0.0 0.0.255.255 eq 3480
+ deny   udp any 192.168.0.0 0.0.255.255 eq 3481
+ permit udp 10.0.0.0 0.0.0.255 any eq 3479
+ permit udp 10.0.0.0 0.0.0.255 any eq 3480
+ permit udp 10.0.0.0 0.0.0.255 any eq 3481
+ permit udp 192.168.0.0 0.0.255.255 any eq 3479
+ permit udp 192.168.0.0 0.0.255.255 any eq 3480
+ permit udp 192.168.0.0 0.0.255.255 any eq 3481
+ip access-list extended StS-VPN-Villa
+ip access-list extended VPN-!$fl
+ permit ip 192.168.55.0 0.0.0.255 192.168.56.0 0.0.0.255
+ip access-list extended cowokers
+ permit ip 10.10.130.0 0.0.0.255 host 10.10.5.10
+ permit ip 10.10.130.0 0.0.0.255 host 10.10.5.5
+ permit ip 10.10.130.0 0.0.0.255 host 10.10.130.1
+ deny   ip 10.10.130.0 0.0.0.255 10.0.0.0 0.255.255.255 log
+ deny   ip 10.10.130.0 0.0.0.255 192.168.55.0 0.0.0.255 log
+ permit ip any any
+ip access-list extended ssl_vpn_acl
+ permit ip any any
+!
+logging trap debugging
+!
+route-map SDM_RMAP_1 permit 1
+ match ip address NATMAIN
+!
+route-map RMAP-STATIC-NAT-192-168-55-0 deny 10
+ match ip address ACL-STATIC-NAT-192-168-55-0
+!
+!
+snmp-server group gruvadm99 v3 priv 
+snmp-server host 10.10.10.20 informs version 3 priv der#Ps29 
+access-list 69 permit 46.219.205.58
+access-list 69 permit 46.219.206.31
+access-list 69 permit 46.219.205.13
+access-list 69 permit 145.224.123.63
+access-list 69 permit 88.155.55.195
+access-list 69 permit 88.155.25.179
+access-list 69 permit 185.190.151.251
+access-list 69 permit 46.219.205.176
+access-list 69 permit 164.132.136.34
+access-list 69 permit 46.219.207.157
+access-list 69 permit 31.134.121.58
+access-list 69 permit 194.28.199.225
+access-list 69 permit 10.10.0.0 0.0.255.255
+control-plane host
+!
+control-plane transit
+!
+control-plane cef-exception
+!
+!
+control-plane
+!         
+ !
+ !
+ !
+ !
+!
+mgcp behavior rsip-range tgcp-only
+mgcp behavior comedia-role none
+mgcp behavior comedia-check-media-src disable
+mgcp behavior comedia-sdp-force disable
+!
+mgcp profile default
+!
+!
+!
+!
+!
+!
+!
+gatekeeper
+ shutdown
+!
+!
+privilege exec level 2 show
+banner motd ^CWARNING! Access to this device is restricted to those individuals with specific Permissions. If you are not an authorized user, disconnect now. Any attempts to gain unauthorized access will be prosecuted to the fullest extent of the law^C
+configuration mode exclusive
+!
+line con 0
+ password 7 110B171213000802537B79
+line aux 0
+ exec-timeout 0 1
+ password 7 14151C1C08162925737961
+ no exec
+ transport output none
+line 2
+ no activation-character
+ no exec
+ transport preferred none
+ transport output none
+ stopbits 1
+line vty 0 4
+ access-class 69 in
+ login local
+ transport input ssh
+line vty 5 15
+ access-class 69 in
+ login local
+ transport input ssh
+!
+exception memory ignore overflow processor
+exception memory ignore overflow io
+scheduler allocate 20000 1000
+ntp master 10
+ntp server time.nist.gov
+event manager applet DHCP-BIND-CLEAR
+ event timer cron cron-entry "0 12 * * *"
+ action 001 cli command "enable"
+ action 002 cli command "clear ip dhcp binding *"
+ action 003 cli command "exit"
+!
+!
+webvpn gateway WEBVPN_GW
+ ip address 5.32.41.70 port 443  
+ http-redirect port 80
+ ssl trustpoint SALAM_TRUSTPOINT
+ logging enable
+ inservice
+ dtls port 3000
+ !
+webvpn context WEBVPN_CON
+ title "Assalyamu alyaikum"
+ secondary-color white
+ title-color #669999
+ text-color black
+ !
+ acl "ssl_vpn_acl"
+ login-message "Hello"
+ gateway WEBVPN_GW
+ max-users 5
+ !
+ ssl authenticate verify all
+ inservice
+ !
+ policy group WEBVPN_POLICY
+   functions svc-enabled
+   svc address-pool "WEBVPN_POOL" netmask 255.255.255.0
+   svc keep-client-installed
+   svc split include 10.10.10.0 255.255.255.0
+   svc split include acl ssl_vpn_split_acl
+ default-group-policy WEBVPN_POLICY
+!
+end

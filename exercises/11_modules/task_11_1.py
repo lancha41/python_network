@@ -70,3 +70,4 @@ def parse_cdp_neighbors(command_output):
 if __name__ == "__main__":
     with open("sh_cdp_n_r3.txt") as f:
         print(parse_cdp_neighbors(f.read()))
+

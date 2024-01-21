@@ -17,3 +17,15 @@ IP-адрес считается доступным, если выполнени
 
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 """
+import subprocess
+def ping_ip_addresses(ip_list):
+    list_good=[]
+    list_bad=[]
+    for ip in ip_list:
+        cmd_ping='ping '+ip+' -c 4'
+        ping=subprocess.run(cmd_ping,shell=True,stdout=subprocess.DEVNULL)
+        if ping.returncode == 0:
+            list_good.append(ip)
+        else:
+            list_bad.append(ip)
+    return list_good,list_bad

@@ -18,3 +18,7 @@ Reachable    Unreachable
              10.1.1.9
 
 """
+from task_12_1 import ping_ip_addresses
+from tabulate import tabulate
+def print_ip_table(reach,unreach):
+   

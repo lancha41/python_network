@@ -21,4 +21,11 @@ Reachable    Unreachable
 from task_12_1 import ping_ip_addresses
 from tabulate import tabulate
 def print_ip_table(reach,unreach):
-   
+   ip_dict={}
+   ip_dict['Reachable']=reach
+   ip_dict['Unreachable']=unreach
+   print(tabulate(ip_dict,headers='keys'))
+
+if __name__ == "__main__":
+   pass
+

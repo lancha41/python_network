@@ -21,3 +21,16 @@
 Проверить работу функции на примере файла sh_ip_int_br.txt.
 
 """
+import re
+def parse_sh_ip_int_br(config):
+   with open(config,'r') as f:
+      lines=f.readlines()
+   flist=[]
+   regex=(r'(\S+)\s+(\d+\.{3}\d*|\S+)\s+(\S+\s+){2}(\S{2,4}|\S+\s+\S+)\s+(\S+)')
+   for line in lines[2:]:
+      match=re.search(regex,line)
+      if match:
+         flist.append((match.group(1),match.group(2),match.group(4),match.group(5),))
+   return flist
+
+print(parse_sh_ip_int_br('sh_ip_int_br_2.txt'))

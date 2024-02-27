@@ -26,3 +26,13 @@ description Connected to SW1 port Eth 0/1
 
 Проверить работу функции на файле sh_cdp_n_sw1.txt.
 """
+import re
+def generate_description_from_cdp(filename):
+   regex=(r'\n(?P<device_id>\w+)\s{2,}(?P<local_intf>\S+\s\S+)\s+\d+\s+(\w\s){2,}\s+\S+\s+(?P<remote_intf>\S+\s\S+)?')
+   with open(filename,'r') as f:
+      output=f.read()
+   rdict=dict()
+   match = re.finditer(regex,output)
+   for i in match:
+      rdict[i.group(2)]='description Connected to '+i.group(1)+' port '+i.group(4)
+   return rdict

@@ -24,3 +24,15 @@ interface Loopback0
 
 Проверить работу функции на примере файла config_r1.txt.
 """
+import re
+def get_ints_without_description(config):
+   rlist=[]
+   regex=(r'interface (\S+\d)\n\s([^d])?')
+   with open(config,'r') as f:
+      outline=f.read()
+   match = re.finditer(regex,outline)
+   for i in match:
+      if not i.group(2) == None:
+         rlist.append(i.group(1))
+   return rlist
+
